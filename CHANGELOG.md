@@ -41,6 +41,8 @@ _nothing yet.._
 - Ignore any files called `multiqc_data.json` ([#1598](https://github.com/ewels/MultiQC/issues/1598))
 - Check that the config `path_filters` is a list, convert to list if a string is supplied ([#1539](https://github.com/ewels/MultiQC/issues/1539))
 
+Updated Dockerfile to enable support to build multiarch images, run through a non-privileged user and build tools for non precompiled python binaries.
+
 ### New Modules
 
 - [**CheckQC**](https://github.com/Molmed/checkQC)
