@@ -17,6 +17,13 @@ from .time_metrics import DragenTimeMetrics
 from .trimmer_metrics import DragenTrimmerMetrics
 from .vc_metrics import DragenVCMetrics
 
+from .coverage_per_contig import DragenCoveragePerContig
+from .coverage_metrics import DragenCoverageMetrics
+from .coverage_hist import DragenCoverageHist
+from .fastqc_metrics import DragenFastqcMetrics
+
+import logging
+
 log = logging.getLogger(__name__)
 
 
@@ -35,6 +42,7 @@ class MultiqcModule(
     DragenRnaTranscriptCoverage,
     DragenScRnaMetrics,
     DragenScAtacMetrics,
+    DragenFastqcMetrics
 ):
     """DRAGEN provides a number of differrent pipelines and outputs, including base calling, DNA and RNA alignment,
     post-alignment processing and variant calling, covering virtually all stages of typical NGS data processing.
@@ -111,6 +119,11 @@ class MultiqcModule(
 
         samples_found |= self.add_sc_atac_metrics()
         # <output prefix>.scATAC.metrics.csv
+
+        
+        samples_found |= self.add_fastqc_metrics()
+        # <output prefix>.fastqc_metrics.csv
+
 
         if len(samples_found) == 0:
             raise UserWarning
