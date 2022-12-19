@@ -41,7 +41,7 @@ numpy_version = ""
 matplotlib_version = ">=2.1.1"
 jinja2_version = ">=2.9"
 markdown_version = ""
-kiwisolver_version = "==1.2.0"
+
 if sys.version_info[0:2] < (3, 6):
     # Lots of tools have dropped Python 3 support, so limit their versions
     matplotlib_version += ",<3.0.0"
@@ -51,7 +51,6 @@ if sys.version_info[0:2] < (3, 6):
     markdown_version = "<3.2"
 
 install_requires = [
-    "kiwisolver" + kiwisolver_version,
     "matplotlib" + matplotlib_version,
     "networkx" + networkx_version,
     "numpy" + numpy_version,
